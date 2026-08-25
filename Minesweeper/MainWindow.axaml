@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Minesweeper.MainWindow"
+        Title="Minesweeper">
+        <StackPanel Width="200" Height="300">
+            <Label
+                x:Name="lblScore"
+                Content="Vi er i gang"
+                HorizontalAlignment="Center">
+            </Label>
+            <Canvas Width="190" Height="190">
+                <Border 
+                    Width="190" Height="190"
+                    BorderThickness="1"
+                    BorderBrush="Black">
+                    <Grid
+                        x:Name="GameGrid"
+                        Width="190" Height="190"
+                        RowDefinitions="*,*,*" 
+                        ColumnDefinitions="*,*,*"
+                        ShowGridLines="True">
+                    </Grid>
+                </Border>
+            </Canvas>
+        </StackPanel>
+</Window>
