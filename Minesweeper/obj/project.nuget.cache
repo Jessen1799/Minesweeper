@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hVSJFVYMFYs=",
+  "dgSpecHash": "ZYqrkmW0Wrs=",
   "success": true,
-  "projectFilePath": "C:\\Dev\\CSharp\\Minesweeper\\Minesweeper\\Minesweeper.csproj",
+  "projectFilePath": "C:\\Users\\Oliver\\RiderProjects\\Minesweeper\\Minesweeper\\Minesweeper.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Oliver\\.nuget\\packages\\avalonia\\12.1.1\\avalonia.12.1.1.nupkg.sha512",
     "C:\\Users\\Oliver\\.nuget\\packages\\avalonia.angle.windows.natives\\2.1.27548.20260419\\avalonia.angle.windows.natives.2.1.27548.20260419.nupkg.sha512",

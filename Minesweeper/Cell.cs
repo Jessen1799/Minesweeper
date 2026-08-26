@@ -1,49 +1,46 @@
-﻿using Avalonia.Controls;
+﻿using System;
+using Avalonia.Controls;
 using Avalonia.Interactivity;
 
 namespace Minesweeper;
 
 public class Cell : Grid
 {
-    private Button _button;
-    private readonly Label _label;
-    private MineField _mineField;
-    public Cell(MineField mineField)
+    public  readonly Button Button;
+    public readonly Label Label;
+    private readonly MineField _mineField;
+    private readonly Action<MineField, Cell> _onCellClick;
+    
+    public Cell(MineField mineField, Action<MineField, Cell> onCellClick)
     { 
-        _button = new Button
+        Button = new Button
         {
-            Content = "?",
-            Width = 63,
-            Height = 63
+            Classes = { "layout" },
+            Content = "?"
         };
         
-        _label = new Label
+        Label = new Label
         {
+            Classes = { "layout" },
             Content = "",
             IsVisible = false
         };
         
         _mineField = mineField;
-
-        _button.Tag = mineField;
-        _button.Click += Reveal;
         
-        Children.Add(_label);
-        Children.Add(_button);
+        _onCellClick = onCellClick;
+        
+
+        Button.Tag = mineField;
+        Button.Click += OnCellClicked;
+        
+        Children.Add(Label);
+        Children.Add(Button);
     }
     
-    private void Reveal(object? sender, RoutedEventArgs e)
+    private void OnCellClicked(object? sender, RoutedEventArgs e)
     {
-        if (_mineField.HasMine == true)
-        {
-            _label.Content = "Bomb";
-        }
-        else
-        {
-            _label.Content = "W";
-        }
-        
-        _label.IsVisible = true;
-        _button.IsVisible = false;
+        _onCellClick.Invoke(_mineField, this);
     }
+    
 }
