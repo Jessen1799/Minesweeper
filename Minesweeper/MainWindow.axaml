@@ -68,7 +68,11 @@
                 
                 <Label
                         Grid.Row="0"
-                        x:Name="LblGame">
+                        x:Name="LblGame"
+                        HorizontalAlignment="Left"
+                        Margin="350,350,0,0"
+                        FontWeight="Bold"
+                        FontSize="46">
                         
                 </Label>
                 
