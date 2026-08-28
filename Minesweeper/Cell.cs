@@ -47,6 +47,11 @@ public class Cell : Grid
         Children.Add(Button);
     }
     
+    /// <summary>
+    /// Invokes delegate with ref to minefield and cell.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void OnCellClicked(object? sender, RoutedEventArgs e)
     {
         _onCellClick.Invoke(_mineField, this);
