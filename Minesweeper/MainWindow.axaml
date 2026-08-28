@@ -2,20 +2,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="700" d:DesignHeight="700"
         x:Class="Minesweeper.MainWindow"
         Title="Minesweeper">
         
-        <Grid RowDefinitions="Auto, *">
+        <Grid RowDefinitions="Auto, *" >
                 
                 <!--Classes available for UI components-->
-                
                 <Grid.Styles>
                         <Style Selector="Button.layout">
                                 <Setter Property="HorizontalAlignment" Value="Stretch"/>
                                 <Setter Property="VerticalAlignment" Value="Stretch"/>
                                 <Setter Property="HorizontalContentAlignment" Value="Center"/>
                                 <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                <Setter Property="Background" Value="CadetBlue"/>
+                        </Style>
+                        
+                        <Style Selector="Button.layout:pointerover /template/ ContentPresenter#PART_ContentPresenter">
                                 <Setter Property="Background" Value="CadetBlue"/>
                         </Style>
                         
@@ -26,29 +29,63 @@
                                 <Setter Property="Foreground" Value="Red"/>
                         </Style>
                 </Grid.Styles>
-                        
-                <Label 
+                     
+                <!--UI Components for board game-->
+                <TextBlock 
                         Grid.Row="0"
-                        x:Name="LblScore"
-                        Content="Minesweeper"
+                        x:Name="TbInfo"
+                        Text="Navigate through playing field until no bombs is left to win. Time is displayed upon achieving victory. Hitting a bomb will end the game. Hints is found throughout the game giving a number which tells you how many bombs surrounds your last clicked playing field"
+                        FontSize="16"
+                        FontWeight="Bold"
                         HorizontalAlignment="Center"
-                        Margin="0,20,0,20">
+                        TextWrapping="Wrap"
+                        MaxWidth="400"
+                        Margin="0,70,200,0">
+                        
+                </TextBlock>
+                
+                <Button Grid.Row="0"
+                        x:Name="BtnStart"
+                        Content="Start game"
+                        Click="BtnStart_OnClick"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Padding="25,20,25,20"
+                        Margin="470,0,0,0">
+                        
+                </Button>
+                
+                <Label
+                        Grid.Row="0" 
+                        x:Name="LblTime"
+                        Content="Tid: "
+                        HorizontalAlignment="Center"
+                        FontWeight="Bold"
+                        FontSize="16"
+                        Margin="470,135,0,0">
+                        
+                </Label>
+                
+                <Label
+                        Grid.Row="0"
+                        x:Name="LblGame">
                         
                 </Label>
                 
                 <Border 
                         Grid.Row="1"
-                        Width="500" 
-                        Height="500"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        BorderThickness="1"
-                        BorderBrush="Black">
+                        Width="600"
+                        Height="600"
+                        BorderThickness="3"
+                        BorderBrush="Black"
+                        Margin="0,0,0,200">
                         
+                        <!--Playing field-->
                         <UniformGrid 
                                 x:Name="GameGrid"
                                 Rows="9"
-                                Columns="9">
+                                Columns="9"
+                                Background="Black">
                         </UniformGrid>
                 </Border>
         </Grid>
